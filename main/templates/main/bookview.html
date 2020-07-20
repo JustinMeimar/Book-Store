@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+    <h1>Very Nice Looking Template to Display {{ title }}</h1>
+    <div>
+        <h3>Summary:</h3>
+        <p>
+            {{ content }}
+        </p>
+        <h4>Author:</h4>
+        <p>
+            {{ author }}
+        </p>
+    </div>
+    <a href="{% url 'main' %}">Back</a>
+{% endblock %}
+

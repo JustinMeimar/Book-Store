@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+    <script>
+
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        const url = "/book-list"
+        const responseType = "json"
+
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function() {
+            const serverResponse = xhr.response
+            var listedItems = serverResponse.response
+            console.log(listedItems)
+        }
+        xhr.send()
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+    <img src="{% static 'main/images/1984.jpg' %}">
+    <h1>Hello, Welcome to the Site</h1>
+    <br>
+
+    <div>
+        <a href="{% url 'form' %}">Add another Book</a>
+    </div>
+    <br>
+
+    {% for i in books %}
+    <div>
+        <a href="book/{{i.id}}">{{i.title}}</a>
+        <p>
+            <h4>Content</h4>
+            {{ i.content }}
+
+            <h4>Author</h4>
+            {{ i.author.first_name }}
+            {{ i.author.last_name }}
+        </p>
+    </div>
+    <td>
+        <a href="book-delete/{{i.id}}">Delete</a>
+    </td>
+    
+
+    {% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+    <h1>Add a New Book</h1>
+    
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save" name="book_form">
+    </form>
+    <br>
+    <h1>Add a New Author</h1>
+    <form method="POST"> {% csrf_token %}
+        {{ author_form.as_p}}
+        <input type="submit" value="Save" name="author_form">
+    </form>
+    <br>
+    <div>
+        <a href="{% url 'main' %}">Back to main page</a>
+    </div>
+
+{% endblock %}
