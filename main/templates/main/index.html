@@ -1,48 +1,40 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block body %}
-    <script>
-
-        const xhr = new XMLHttpRequest()
-        const method = 'GET'
-        const url = "/book-list"
-        const responseType = "json"
-
-        xhr.responseType = responseType
-        xhr.open(method, url)
-        xhr.onload = function() {
-            const serverResponse = xhr.response
-            var listedItems = serverResponse.response
-            console.log(listedItems)
-        }
-        xhr.send()
-
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script type="text/javascript" src="{% static 'main/JS/main.js'%}"> </script>
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
-    <img src="{% static 'main/images/1984.jpg' %}">
-    <h1>Hello, Welcome to the Site</h1>
+    
+    <h1 id="title">Hello User, Welcome to the Site</h1>
+    <!-- <img src="{% static 'main/images/1984.jpg' %}"> -->
     <br>
 
-    <div>
+    <div id="book_create_link">
         <a href="{% url 'form' %}">Add another Book</a>
     </div>
     <br>
 
     {% for i in books %}
-    <div>
+    <div id="book_item">
         <a href="book/{{i.id}}">{{i.title}}</a>
-        <p>
-            <h4>Content</h4>
+        <p id="book_item_body">
+            <div id="book_item_title">
+                {{i.title}}
+            </div>
+            <h4 id="book_item_content">Content</h4>
             {{ i.content }}
+            <img src="{% static '{{ i.picture }}' %}">
 
             <h4>Author</h4>
             {{ i.author.first_name }}
             {{ i.author.last_name }}
+            
         </p>
+        <td>
+            <a href="book-delete/{{i.id}}">Delete</a>
+        </td>
     </div>
-    <td>
-        <a href="book-delete/{{i.id}}">Delete</a>
-    </td>
+   
     
 
     {% endfor %}

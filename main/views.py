@@ -27,7 +27,7 @@ def create_book(request):
     form = MainForm()
     if request.method == "POST":
         if "book_form" in request.POST: 
-            form = MainForm(request.POST)
+            form = MainForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()        
                 form = MainForm()

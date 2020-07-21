@@ -8,6 +8,7 @@ class MainForm(ModelForm):
             "content",
             "title",
             "author",
+            "picture"
             ]
 
 class AuthorForm(ModelForm):

@@ -1,3 +1,28 @@
 h1 {
-    color:red;
+    margin-top: 30px;
+    color: #9600cc;
+    text-align: center;
+}
+
+#book_item {
+    margin-left: 80px;
+    margin-right: 550px;
+    margin-bottom: 20px;
+    border: 2px solid #9966ff;
+    border-radius: 5px;
+    padding: 20px;   
+}
+
+#book_item_content {
+    font-size: 24px;
+    color: #4b0066;
+}
+
+#book_item_title {
+    font-size: 48px;
+}
+
+#book_create_link {
+    margin-left: 80px;
+
 }
