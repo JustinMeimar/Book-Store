@@ -7,8 +7,7 @@ class MainForm(ModelForm):
         fields = [
             "content",
             "title",
-            "author",
-            "picture"
+            "author"
             ]
 
 class AuthorForm(ModelForm):
